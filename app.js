@@ -44,8 +44,8 @@ app.post('/', function(req, res) {
   exec("cd ~/repos/"+REPO_NAME, function(error, stdout, stderr){
     exec("git pull", function(error,stdout, stderr){
       console.log("completed");
-    })
-  ));
+    });
+  });
 
   // Dir.chdir("/var/deployments/" + repo)
   // if (system("/bin/su", "deployment", "-c", "/usr/bin/git pull"))
