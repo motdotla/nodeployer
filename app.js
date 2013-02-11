@@ -7,7 +7,7 @@ var express   = require('express')
 
 var app       = express();
 
-function puts(error, stdout, stderr) { sys.puts(stdout) }
+function puts(error, stdout, stderr) { console.log(stdout); }
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
