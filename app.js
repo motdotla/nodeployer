@@ -41,10 +41,8 @@ app.post('/', function(req, res) {
   var repo = push['repository']['name'];
 
   
-  exec("cd ~/repos/"+REPO_NAME, function(error, stdout, stderr){
-    exec("git pull", function(error,stdout, stderr){
-      console.log("completed");
-    });
+  exec("cd ~/repos/"+REPO_NAME+";git pull", function(error, stdout, stderr){
+    console.log(stdout);
   });
 
   // Dir.chdir("/var/deployments/" + repo)
