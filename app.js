@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
   var repo = push['repository']['name'];
 
   
-  exec("cd ~/repos/"+REPO_NAME+";git pull", function(error, stdout, stderr){
+  exec("cd ~/repos/"+REPO_NAME+"; git pull; bundle --without development test; RACK_ENV=production bundle exec rake db:migrate", function(error, stdout, stderr){
     console.log(stdout);
   });
 
