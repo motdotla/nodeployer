@@ -1,4 +1,4 @@
-var REPO      = process.env.REPO;
+var REPO_NAME = process.env.REPO_NAME;
 
 var express   = require('express')
   , http      = require('http')
@@ -23,7 +23,7 @@ app.configure('development', function(){
 });
 
 app.get('/', function(req, res) {
-  res.send("nodeployer");
+  res.send("nodeployer for: "+REPO_NAME);
 });
 
 app.post('/', function(req, res) {
@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
   var repo = push['repository']['name'];
 
   
-  exec("cd ~/repos/"+REPO, puts);
+  exec("cd ~/repos/"+REPO_NAME, puts);
   exec("git pull origin master", puts);
 
   // Dir.chdir("/var/deployments/" + repo)
